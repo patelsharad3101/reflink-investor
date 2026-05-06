@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RefLink — Investor Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=DM+Sans:wght@400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --bg2: #ffffff;
+  --bg3: #f0ede6;
+  --ink: #1a1814;
+  --ink2: #5a5650;
+  --ink3: #9a9690;
+  --rule: #e2dfd8;
+  --gold: #b8860b;
+  --gold-bg: #fdf8ec;
+  --gold-border: #e8d08a;
+  --teal: #1a6b5a;
+  --teal-bg: #edf7f4;
+  --teal-border: #a8d8ce;
+  --red: #c0392b;
+  --red-bg: #fdf0ee;
+  --red-border: #f0b8b2;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+  --r: 10px;
+  --max: 720px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+section {
+  padding: 56px 0;
+  border-bottom: 1px solid var(--rule);
+}
+section:last-child { border-bottom: none; }
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(247,245,240,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+  z-index: 100;
+  padding: 0 20px;
+}
+.nav-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 52px;
+  gap: 8px;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.nav-links::-webkit-scrollbar { display: none; }
+.nav-links a {
+  font-size: 12px;
+  color: var(--ink3);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all .15s;
+}
+.nav-links a:hover, .nav-links a.active {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* ── HERO ── */
+#hero {
+  padding: 64px 0 56px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--rule);
+}
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: var(--teal-bg);
+  border: 1px solid var(--teal-border);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+.hero-kicker::before { content: '●'; font-size: 7px; }
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(34px, 6vw, 52px);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-sub {
+  font-size: 17px;
+  color: var(--ink2);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 36px;
+}
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+.stat {
+  background: var(--bg2);
+  padding: 18px 16px;
+  text-align: center;
+}
+.stat-n {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+}
+.stat-l {
+  font-size: 11px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  line-height: 1.3;
+}
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink3);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.lead {
+  font-size: 16px;
+  color: var(--ink2);
+  line-height: 1.65;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  margin: 36px 0 12px;
+  color: var(--ink);
+}
+p { color: var(--ink2); margin-bottom: 14px; }
+p strong { color: var(--ink); font-weight: 500; }
+p:last-child { margin-bottom: 0; }
+
+/* ── CARDS ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  padding: 20px;
+}
+.card-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+.card-body { font-size: 13px; color: var(--ink2); line-height: 1.55; }
+.card.gold { background: var(--gold-bg); border-color: var(--gold-border); }
+.card.teal { background: var(--teal-bg); border-color: var(--teal-border); }
+.card.red  { background: var(--red-bg);  border-color: var(--red-border); }
+
+/* ── PILL TAGS ── */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.tag-g { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal-border); }
+.tag-y { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-border); }
+.tag-r { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+.tag-n { background: var(--bg3); color: var(--ink3); border: 1px solid var(--rule); }
+
+/* ── TABLE ── */
+.table-wrap { overflow-x: auto; margin: 20px 0; border-radius: var(--r); border: 1px solid var(--rule); }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 480px; }
+thead th {
+  background: var(--bg3);
+  color: var(--ink3);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+}
+tbody td {
+  padding: 10px 14px;
+  color: var(--ink2);
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--bg3); }
+td strong { color: var(--ink); }
+
+/* ── CALLOUT ── */
+.callout {
+  padding: 14px 18px;
+  border-radius: var(--r);
+  margin: 20px 0;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.callout.gold { background: var(--gold-bg); border: 1px solid var(--gold-border); color: var(--gold); }
+.callout.teal { background: var(--teal-bg); border: 1px solid var(--teal-border); color: var(--teal); }
+.callout-icon { flex-shrink: 0; margin-top: 2px; }
+.callout p { color: inherit; margin: 0; }
+
+/* ── DIVIDER ── */
+hr { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+
+/* ── ─────────────────────────────────────── ── */
+/* ── INTERACTIVE USER FLOW ── */
+/* ── ─────────────────────────────────────── ── */
+
+.flow-container {
+  margin: 24px 0;
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+
+.flow-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--rule);
+  background: var(--bg3);
+}
+.flow-tab {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink3);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  transition: all .15s;
+  border-right: 1px solid var(--rule);
+  text-align: center;
+}
+.flow-tab:last-child { border-right: none; }
+.flow-tab.active { background: var(--bg2); color: var(--ink); }
+.flow-tab.ref.active { border-bottom: 2px solid var(--gold); color: var(--gold); }
+.flow-tab.app.active { border-bottom: 2px solid var(--teal); color: var(--teal); }
+
+.flow-panel { display: none; padding: 24px; }
+.flow-panel.active { display: block; }
+
+.flow-steps { display: flex; flex-direction: column; gap: 0; }
+.flow-step {
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 2px 6px;
+  transition: background .12s;
+}
+.flow-step:hover { background: var(--bg3); }
+.flow-step.active-step { background: var(--bg3); }
+
+.step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 32px;
+  flex-shrink: 0;
+}
+.step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 500;
+  flex-shrink: 0;
+  font-family: var(--mono);
+  transition: all .2s;
+}
+.step-num.ref { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-border); }
+.step-num.app { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal-border); }
+.step-num.ref.lit { background: var(--gold); color: #fff; border-color: var(--gold); }
+.step-num.app.lit { background: var(--teal); color: #fff; border-color: var(--teal); }
+.step-line { width: 1px; flex: 1; min-height: 16px; background: var(--rule); margin: 2px 0; }
+
+.step-body { flex: 1; padding: 6px 0 20px; }
+.step-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+.step-desc { font-size: 13px; color: var(--ink2); line-height: 1.5; }
+
+/* detail card that expands below */
+.step-detail {
+  display: none;
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.55;
+}
+.step-detail.open { display: block; }
+.step-detail-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+/* progress tracker */
+.flow-progress {
+  display: flex;
+  gap: 4px;
+  padding: 16px 24px 0;
+}
+.prog-dot {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--rule);
+  transition: background .2s;
+}
+.prog-dot.ref.lit { background: var(--gold); }
+.prog-dot.app.lit { background: var(--teal); }
+
+/* ── RISK SPLIT ── */
+.risk-list { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.risk-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  overflow: hidden;
+  font-size: 13px;
+}
+.risk-l { padding: 14px 16px; background: var(--red-bg); }
+.risk-r { padding: 14px 16px; background: var(--teal-bg); border-left: 1px solid var(--rule); }
+.risk-lbl { font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+.risk-lbl.r { color: var(--red); }
+.risk-lbl.g { color: var(--teal); }
+.risk-txt { color: var(--ink2); line-height: 1.5; }
+
+/* ── MONETIZATION TIERS ── */
+.tiers { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+.tier {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+}
+.tier.hl { border-color: var(--gold-border); background: var(--gold-bg); }
+.tier-label { min-width: 72px; flex-shrink: 0; }
+.tier-phase { font-size: 10px; color: var(--ink3); text-transform: uppercase; letter-spacing: .06em; }
+.tier-name { font-size: 15px; font-weight: 500; color: var(--ink); margin-top: 2px; }
+.tier-body { flex: 1; font-size: 13px; color: var(--ink2); line-height: 1.55; }
+.tier-body strong { color: var(--ink); }
+.tier-price { text-align: right; flex-shrink: 0; min-width: 64px; }
+.tier-amt { font-family: var(--serif); font-size: 18px; color: var(--gold); display: block; }
+.tier-unit { font-size: 11px; color: var(--ink3); }
+
+/* ── STACK PILLS ── */
+.stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.stack-pill {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 14px;
+  background: var(--bg2);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  min-width: 100px;
+}
+.stack-layer { font-size: 10px; color: var(--ink3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+.stack-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  padding: 36px 20px;
+  font-size: 13px;
+  text-align: center;
+}
+footer strong { color: rgba(255,255,255,0.85); }
+
+/* ── PRINT ── */
+@media print {
+  nav { display: none; }
+  section { page-break-inside: avoid; }
+  .flow-panel { display: block !important; }
+  .flow-tabs { display: none; }
+  .step-detail { display: block !important; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 600px) {
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .risk-item { grid-template-columns: 1fr; }
+  .risk-r { border-left: none; border-top: 1px solid var(--rule); }
+  .tier { flex-wrap: wrap; }
+  .tier-price { min-width: auto; }
+  section { padding: 40px 0; }
+  .flow-tab { font-size: 12px; padding: 10px 8px; }
+  .tam-row { grid-template-columns: 1fr; }
+  .scenario-3 { grid-template-columns: 1fr; }
+  .funnel-label { min-width: 120px; font-size: 11px; }
+}
+
+/* ── MARKET SIZING ── */
+.ms-stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap: 10px; margin: 20px 0; }
+.ms-stat { background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--r); padding: 14px 16px; }
+.ms-stat-hi { border-color: var(--gold-border); background: var(--gold-bg); }
+.ms-stat-val { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+.ms-stat-lbl { font-size: 11px; color: var(--ink2); line-height: 1.4; }
+.ms-stat-src { font-size: 10px; color: var(--ink3); margin-top: 4px; font-style: italic; }
+
+.ms-funnel { margin: 20px 0; display: flex; flex-direction: column; gap: 7px; }
+.mf-row { display: flex; align-items: center; gap: 10px; }
+.mf-lbl { font-size: 12px; color: var(--ink2); min-width: 190px; text-align: right; flex-shrink: 0; }
+.mf-track { flex: 1; height: 32px; background: var(--bg3); border-radius: 6px; overflow: hidden; }
+.mf-bar { height: 100%; border-radius: 6px; display: flex; align-items: center; padding: 0 10px; font-size: 11px; font-weight: 500; white-space: nowrap; transition: width 1.1s cubic-bezier(.4,0,.2,1); width: 0%; }
+.mf-num { font-size: 12px; font-weight: 500; color: var(--ink); min-width: 50px; }
+
+.tam-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; margin: 20px 0; }
+.tam-cell { padding: 16px; }
+.tam-cell + .tam-cell { border-left: 1px solid var(--rule); }
+.tam-cell-label { font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 5px; color: var(--ink3); }
+.tam-cell-num { font-family: var(--serif); font-size: 20px; font-weight: 600; line-height: 1; margin-bottom: 5px; color: var(--ink); }
+.tam-cell-sub { font-size: 11px; color: var(--ink3); line-height: 1.45; }
+.tam-sam { background: var(--gold-bg); }
+.tam-sam .tam-cell-label, .tam-sam .tam-cell-num { color: var(--gold); }
+.tam-som { background: var(--teal-bg); }
+.tam-som .tam-cell-label, .tam-som .tam-cell-num { color: var(--teal); }
+
+.scenario-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 12px 0 20px; }
+.sc-card { border: 1px solid var(--rule); border-radius: var(--r); padding: 14px 16px; background: var(--bg2); }
+.sc-card.sc-base { border-color: var(--gold-border); background: var(--gold-bg); }
+.sc-label { font-size: 10px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+.sc-label.bear { color: var(--red); }
+.sc-label.base { color: var(--gold); }
+.sc-label.bull { color: var(--teal); }
+.sc-val { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--ink); line-height: 1; margin-bottom: 5px; }
+.sc-sub { font-size: 11px; color: var(--ink3); line-height: 1.45; }
+
+.insight-list { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+.insight-item { display: flex; gap: 12px; padding: 12px 14px; background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--r); align-items: flex-start; }
+.insight-num { font-family: var(--mono); font-size: 11px; color: var(--gold); font-weight: 500; min-width: 18px; margin-top: 2px; flex-shrink: 0; }
+.insight-txt { font-size: 13px; color: var(--ink2); line-height: 1.55; }
+.insight-txt strong { color: var(--ink); font-weight: 500; }
+
+.ms-src { font-size: 11px; color: var(--ink3); padding: 10px 14px; background: var(--bg3); border-radius: 6px; margin-top: 20px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">RefLink</div>
+    <div class="nav-links">
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#flows">User Flows</a>
+      <a href="#market">Market</a>
+      <a href="#model">Model</a>
+      <a href="#stack">Stack</a>
+      <a href="#risks">Risks</a>
+      <a href="#revenue-model">Revenue</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-kicker">Seed Stage · India-First · MVP in 3 Weeks</div>
+    <h1 class="hero-title">Get referred.<br>Not <em>ghosted.</em></h1>
+    <p class="hero-sub">RefLink is a two-sided referral marketplace — employees post job openings, applicants apply with a form. No cold DMs. No silence. Every application tracked to a clear outcome.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">3 wks</span><span class="stat-l">To live MVP</span></div>
+      <div class="stat"><span class="stat-n">₹2.5k</span><span class="stat-l">Monthly burn</span></div>
+      <div class="stat"><span class="stat-n">0</span><span class="stat-l">True competitors</span></div>
+      <div class="stat"><span class="stat-n">Free</span><span class="stat-l">To launch</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="eyebrow">01 · Problem</div>
+    <h2 class="section-title">A process everyone<br>hates but <em>nobody fixed.</em></h2>
+    <p class="lead">Getting a referral in India today means cold-messaging strangers on LinkedIn, getting ghosted, and repeating until exhausted. Employees who want to refer people are equally stuck.</p>
+
+    <div class="grid-2">
+      <div class="card red">
+        <div class="card-title">For applicants</div>
+        <div class="card-body">Search LinkedIn → cold DM employees → wait → get ignored → follow up awkwardly → no confirmation, no status, no closure. Repeat for every company.</div>
+      </div>
+      <div class="card red">
+        <div class="card-title">For referrers</div>
+        <div class="card-body">Post on LinkedIn → get 80 DMs in 48 hours → buried in feed → no way to shortlist, track, or follow up. Want to help but can't manage the chaos.</div>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <span class="callout-icon">→</span>
+      <p><strong>The gap:</strong> No neutral, structured platform exists where referrers post openings and applicants apply and track — outside of a company's internal HR tool. That's exactly what RefLink is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="container">
+    <div class="eyebrow">02 · Solution</div>
+    <h2 class="section-title">Structured referrals.<br><em>Both sides win.</em></h2>
+    <p class="lead">RefLink replaces every awkward DM exchange with a clean, structured workflow. Referrers get a dashboard. Applicants get a tracking link. Nobody gets ghosted.</p>
+
+    <div class="grid-3">
+      <div class="card gold">
+        <div class="card-title">Post an opening</div>
+        <div class="card-body">Employees post in minutes. Custom screening fields. Unique shareable link. Applications arrive in a dashboard — no DMs ever.</div>
+      </div>
+      <div class="card gold">
+        <div class="card-title">Apply with a form</div>
+        <div class="card-body">Applicants apply without creating an account. Resume upload, cover note, custom questions. Confirmation email sent instantly.</div>
+      </div>
+      <div class="card gold">
+        <div class="card-title">Track to a clear outcome</div>
+        <div class="card-body">5-state status tracker: Received → Under Review → Shortlisted → Referred / Not Moving Forward. No silence, ever.</div>
+      </div>
+    </div>
+
+    <h3>Competitive landscape</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Platform</th><th>What it does</th><th>Gap</th><th>Threat</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>LinkedIn Posts</strong></td><td>Manual referral posts</td><td>No structure, buried in 48 hrs, 0 tracking</td><td><span class="tag tag-r">High, fragile</span></td></tr>
+          <tr><td><strong>Refer.me</strong></td><td>Paid referral marketplace</td><td>Pay-to-refer model, US-focused</td><td><span class="tag tag-y">Medium</span></td></tr>
+          <tr><td><strong>GetMeReferred</strong></td><td>Relationship networking</td><td>No apply flow, slow, no tracking</td><td><span class="tag tag-y">Medium</span></td></tr>
+          <tr><td><strong>ERIN / Boon</strong></td><td>Enterprise HR tools</td><td>B2B only, employees can't post independently</td><td><span class="tag tag-g">Low</span></td></tr>
+          <tr><td><strong>RefLink</strong></td><td>Two-sided referral marketplace</td><td>—</td><td><span class="tag tag-g">This is us</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- USER FLOWS -->
+<section id="flows">
+  <div class="container">
+    <div class="eyebrow">03 · User Flows</div>
+    <h2 class="section-title">How it works<br>for <em>each person.</em></h2>
+    <p class="lead">Two personas, one platform. Click each step to see what's happening under the hood.</p>
+
+    <div class="flow-container">
+      <div class="flow-tabs">
+        <button class="flow-tab ref active" onclick="switchFlow('ref')">Riya — Referrer<br><small style="font-weight:400;font-size:11px;color:inherit;opacity:.7">3 yrs at Swiggy</small></button>
+        <button class="flow-tab app" onclick="switchFlow('app')">Arjun — Applicant<br><small style="font-weight:400;font-size:11px;color:inherit;opacity:.7">Job hunting</small></button>
+      </div>
+
+      <!-- REFERRER PROGRESS -->
+      <div class="flow-progress" id="prog-ref">
+        <div class="prog-dot ref lit" id="pd-ref-0"></div>
+        <div class="prog-dot ref" id="pd-ref-1"></div>
+        <div class="prog-dot ref" id="pd-ref-2"></div>
+        <div class="prog-dot ref" id="pd-ref-3"></div>
+        <div class="prog-dot ref" id="pd-ref-4"></div>
+      </div>
+      <div class="flow-progress" id="prog-app" style="display:none">
+        <div class="prog-dot app lit" id="pd-app-0"></div>
+        <div class="prog-dot app" id="pd-app-1"></div>
+        <div class="prog-dot app" id="pd-app-2"></div>
+        <div class="prog-dot app" id="pd-app-3"></div>
+        <div class="prog-dot app" id="pd-app-4"></div>
+      </div>
+
+      <!-- REFERRER PANEL -->
+      <div class="flow-panel active" id="panel-ref">
+        <div class="flow-steps" id="steps-ref">
+
+          <div class="flow-step" onclick="activateStep('ref',0)">
+            <div class="step-left">
+              <div class="step-num ref lit" id="sn-ref-0">1</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Sign up with LinkedIn</div>
+              <div class="step-desc">One-click OAuth. Name, company & email pre-filled. Work email verifies legitimacy instantly.</div>
+              <div class="step-detail" id="sd-ref-0">
+                No manual review needed at MVP. LinkedIn OAuth acts as the trust filter — if you have a work LinkedIn profile, you're in. Referrer gets a trust badge shown on their posts.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">LinkedIn OAuth</span>
+                  <span class="tag tag-n">Work email verify</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('ref',1)">
+            <div class="step-left">
+              <div class="step-num ref" id="sn-ref-1">2</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Create a referral post</div>
+              <div class="step-desc">Company, role, JD link, deadline. Add custom screening questions. Set an applications cap.</div>
+              <div class="step-detail" id="sd-ref-1">
+                Custom fields let Riya pre-screen without back-and-forth. Example: "Years of backend experience?" or "Link to a project." She can cap applications at 50 to keep it manageable. Takes under 5 minutes.
+                <div class="step-detail-tags">
+                  <span class="tag tag-y">Dynamic form builder</span>
+                  <span class="tag tag-n">Custom screening fields</span>
+                  <span class="tag tag-n">Max cap optional</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('ref',2)">
+            <div class="step-left">
+              <div class="step-num ref" id="sn-ref-2">3</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Share the unique link</div>
+              <div class="step-desc">Platform generates reflink.in/r/swiggy-sde2-riya. She posts it on LinkedIn. Done — no inbox management.</div>
+              <div class="step-detail" id="sd-ref-2">
+                The link is the entire UX shift. Instead of "DM me for a referral," Riya posts a structured link. Applicants self-select. She never manages a single DM.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">Post live instantly</span>
+                  <span class="tag tag-n">Unique slug URL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('ref',3)">
+            <div class="step-left">
+              <div class="step-num ref" id="sn-ref-3">4</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Review in dashboard</div>
+              <div class="step-desc">Each applicant is a card: name, role, resume, LinkedIn, custom answers. Actions: Shortlist / Reject / Ask / Refer.</div>
+              <div class="step-detail" id="sd-ref-3">
+                Every status change auto-emails the applicant. Riya doesn't write a single update message. The platform handles: "You've been shortlisted" / "We're not moving forward." She just clicks.
+                <div class="step-detail-tags">
+                  <span class="tag tag-y">Auto status emails</span>
+                  <span class="tag tag-n">Applicant cards</span>
+                  <span class="tag tag-n">One-click actions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('ref',4)">
+            <div class="step-left">
+              <div class="step-num ref" id="sn-ref-4">5</div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Mark as Referred — loop closed</div>
+              <div class="step-desc">Chosen applicant marked Referred. Everyone else gets a polite close email. Post auto-archives.</div>
+              <div class="step-detail" id="sd-ref-4">
+                Riya's total effort: 1 post, 0 DMs, a few dashboard clicks. She submitted a high-quality referral. Every applicant got a clear answer. This is the entire value proposition in one sentence.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">Loop closed</span>
+                  <span class="tag tag-g">0 DMs sent</span>
+                  <span class="tag tag-n">Post archived</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- APPLICANT PANEL -->
+      <div class="flow-panel" id="panel-app">
+        <div class="flow-steps" id="steps-app">
+
+          <div class="flow-step" onclick="activateStep('app',0)">
+            <div class="step-left">
+              <div class="step-num app lit" id="sn-app-0">1</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Sees the referral link</div>
+              <div class="step-desc">Finds Riya's LinkedIn post or WhatsApp share. Opens the link — no sign-up wall, no friction.</div>
+              <div class="step-detail" id="sd-app-0">
+                The public post page shows: role, company, referrer's note, deadline, and spots remaining. Arjun can make an informed decision before starting the form. No account needed ever.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">No login required</span>
+                  <span class="tag tag-n">Public post page</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('app',1)">
+            <div class="step-left">
+              <div class="step-num app" id="sn-app-1">2</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Fills the structured form</div>
+              <div class="step-desc">Name, email, LinkedIn, current role, resume PDF, cover note + Riya's custom questions. One submit.</div>
+              <div class="step-detail" id="sd-app-1">
+                The custom questions are the differentiator — they push Arjun to think before applying. A thoughtful 3-line answer to "why you?" does more than a cold DM ever could. Quality improves on both sides.
+                <div class="step-detail-tags">
+                  <span class="tag tag-n">Standard fields</span>
+                  <span class="tag tag-n">Custom screening Q's</span>
+                  <span class="tag tag-n">Resume PDF upload</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('app',2)">
+            <div class="step-left">
+              <div class="step-num app" id="sn-app-2">3</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Gets instant confirmation</div>
+              <div class="step-desc">Email arrives with a unique tracking link. He knows his application was received — no ambiguity.</div>
+              <div class="step-detail" id="sd-app-2">
+                The tracking link is the emotional anchor. It's what makes RefLink feel different from a Google Form. Arjun has something concrete — a URL he can check, share, bookmark.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">Received</span>
+                  <span class="tag tag-n">Unique tracking link</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('app',3)">
+            <div class="step-left">
+              <div class="step-num app" id="sn-app-3">4</div>
+              <div class="step-line"></div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Tracks status anytime</div>
+              <div class="step-desc">5 states on the tracking page: Received → Under Review → Shortlisted → Referred / Not Moving Forward.</div>
+              <div class="step-detail" id="sd-app-3">
+                No login needed — just the link. Arjun gets an email whenever his status changes. He can also send one follow-up message (rate-limited to prevent spam). No more guessing.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">Email on every status change</span>
+                  <span class="tag tag-y">1 follow-up allowed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step" onclick="activateStep('app',4)">
+            <div class="step-left">
+              <div class="step-num app" id="sn-app-4">5</div>
+            </div>
+            <div class="step-body">
+              <div class="step-title">Gets a clear answer either way</div>
+              <div class="step-desc">Referred → apply via company portal with referral attached. Not moving forward → polite close email. Always a clear outcome.</div>
+              <div class="step-detail" id="sd-app-4">
+                This is the core promise: no ghosting, by design. The platform enforces closure on every application. Arjun's dignity is respected regardless of outcome. That's the retention engine.
+                <div class="step-detail-tags">
+                  <span class="tag tag-g">No ghosting by design</span>
+                  <span class="tag tag-g">Always gets an answer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="container">
+    <div class="eyebrow">04 · Market Sizing</div>
+    <h2 class="section-title">4 million unstructured<br>interactions. <em>Zero infrastructure.</em></h2>
+    <p class="lead">Built bottom-up from NASSCOM, LinkedIn, and global referral data. We're not creating a new behaviour — we're building the infrastructure for one that already happens at massive scale with no tooling.</p>
+
+    <h3>Key inputs</h3>
+    <div class="ms-stat-grid">
+      <div class="ms-stat">
+        <div class="ms-stat-val">5.8M</div>
+        <div class="ms-stat-lbl">India IT-BPM workforce</div>
+        <div class="ms-stat-src">NASSCOM FY2025</div>
+      </div>
+      <div class="ms-stat">
+        <div class="ms-stat-val">126K</div>
+        <div class="ms-stat-lbl">Net new tech hires / year</div>
+        <div class="ms-stat-src">NASSCOM FY2025</div>
+      </div>
+      <div class="ms-stat">
+        <div class="ms-stat-val">49M</div>
+        <div class="ms-stat-lbl">India LinkedIn job seekers / month</div>
+        <div class="ms-stat-src">LinkedIn Global Report 2026</div>
+      </div>
+      <div class="ms-stat">
+        <div class="ms-stat-val">88%</div>
+        <div class="ms-stat-lbl">India professionals open to new job</div>
+        <div class="ms-stat-src">LinkedIn India 2024</div>
+      </div>
+      <div class="ms-stat">
+        <div class="ms-stat-val">17%</div>
+        <div class="ms-stat-lbl">Share of all hires via referrals globally</div>
+        <div class="ms-stat-src">ERIN / Jobvite 2024</div>
+      </div>
+      <div class="ms-stat">
+        <div class="ms-stat-val">30%</div>
+        <div class="ms-stat-lbl">Referral hire rate vs 7% from job boards</div>
+        <div class="ms-stat-src">Jobvite Global 2024</div>
+      </div>
+      <div class="ms-stat">
+        <div class="ms-stat-val">~58K</div>
+        <div class="ms-stat-lbl">Tech referral posts on LinkedIn India / year</div>
+        <div class="ms-stat-src">Bottom-up derivation</div>
+      </div>
+      <div class="ms-stat ms-stat-hi">
+        <div class="ms-stat-val">~4M</div>
+        <div class="ms-stat-lbl">Total unstructured referral interactions / year</div>
+        <div class="ms-stat-src">Zero structured infra today</div>
+      </div>
+    </div>
+
+    <h3>The demand funnel</h3>
+    <div class="ms-funnel" id="ms-funnel"></div>
+
+    <h3>TAM → SAM → SOM</h3>
+    <div class="tam-row">
+      <div class="tam-cell tam-tam">
+        <div class="tam-cell-label">TAM</div>
+        <div class="tam-cell-num">~4M</div>
+        <div class="tam-cell-sub">All referral interactions in India tech / year. ₹2,400 Cr if each converts at ₹600 LTV.</div>
+      </div>
+      <div class="tam-cell tam-sam">
+        <div class="tam-cell-label">SAM</div>
+        <div class="tam-cell-num">~1.2M</div>
+        <div class="tam-cell-sub">Tier-1 cities · Active LinkedIn users · Structured intent. 30% of TAM. ₹720 Cr addressable.</div>
+      </div>
+      <div class="tam-cell tam-som">
+        <div class="tam-cell-label">SOM — Yr 1–2</div>
+        <div class="tam-cell-num">12K–36K</div>
+        <div class="tam-cell-sub">1–3% of SAM. Realistic capture. ₹7–22 Cr ARR at freemium rates.</div>
+      </div>
+    </div>
+
+    <h3>Revenue scenarios — end of Year 2</h3>
+    <p style="font-size:13px;color:var(--ink3);margin-bottom:12px;">Unit = premium referrers at ₹299/mo. Applicants stay free.</p>
+    <div class="scenario-3">
+      <div class="sc-card">
+        <div class="sc-label bear">Bear</div>
+        <div class="sc-val">₹1.8 Cr</div>
+        <div class="sc-sub">500 premium referrers<br>0.009% of IT workforce</div>
+      </div>
+      <div class="sc-card sc-base">
+        <div class="sc-label base">Base</div>
+        <div class="sc-val">₹10.8 Cr</div>
+        <div class="sc-sub">3,000 premium referrers<br>0.05% of IT workforce</div>
+      </div>
+      <div class="sc-card">
+        <div class="sc-label bull">Bull</div>
+        <div class="sc-val">₹36 Cr+</div>
+        <div class="sc-sub">10,000 referrers + company API + Tier-2 expansion</div>
+      </div>
+    </div>
+
+    <h3>5 insights for investors</h3>
+    <div class="insight-list">
+      <div class="insight-item">
+        <div class="insight-num">01</div>
+        <div class="insight-txt"><strong>Capturing existing behaviour, not creating new habit.</strong> 4M referral interactions happen every year in India tech with zero structure. Demand is proven. The tool just doesn't exist.</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">02</div>
+        <div class="insight-txt"><strong>Tailwind, not headwind.</strong> India's tech job market grows 12–15% in 2026 with 125,000 new roles (NASSCOM). More openings = more referral posts = more demand for RefLink.</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">03</div>
+        <div class="insight-txt"><strong>The monetisation bar is deliberately low.</strong> Base case — ₹10.8 Cr ARR — needs just 0.05% of India's 5.8M IT workforce as paying referrers. Conservative floor, not an optimistic ceiling.</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">04</div>
+        <div class="insight-txt"><strong>Referrals are the highest-ROI hiring channel globally.</strong> 88% of employers rate referrals as best ROI. $7,500 saved per referral hire. Companies have strong incentive — RefLink rides that current.</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-num">05</div>
+        <div class="insight-txt"><strong>Expansion is built in.</strong> This sizing is tech-only. Non-tech white-collar referrals (BFSI, SaaS, design, product) are the same problem at 3× scale. Year 3 expansion is organic.</div>
+      </div>
+    </div>
+
+    <div class="ms-src">Sources: NASSCOM Strategic Review 2025–26 · LinkedIn Global Talent Report 2026 · ERIN Employee Referral Statistics 2024 · Jobvite Global 2024 · Statista LinkedIn engagement 2024 · IBEF India IT report 2025</div>
+  </div>
+</section>
+
+<!-- MONETIZATION -->
+<section id="model">
+  <div class="container">
+    <div class="eyebrow">05 · Business Model</div>
+    <h2 class="section-title">Free to grow.<br><em>Paid when proven.</em></h2>
+    <p class="lead">No monetisation at launch. Build the network first. Introduce friction only after both sides are habitually engaged.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-label">
+          <div class="tier-phase">Phase 1</div>
+          <div class="tier-name">Free</div>
+        </div>
+        <div class="tier-body">Completely free for all referrers and applicants. Seed the network, validate the two-sided loop, build trust. <strong>Target: 200 active users, 50 posts.</strong></div>
+        <div class="tier-price"><span class="tier-amt">₹0</span><span class="tier-unit">by design</span></div>
+      </div>
+      <div class="tier hl">
+        <div class="tier-label">
+          <div class="tier-phase">Phase 2</div>
+          <div class="tier-name">Freemium</div>
+        </div>
+        <div class="tier-body">Free: 2 active posts. <strong>Premium (₹299–499/mo):</strong> unlimited posts, applicant filters, analytics, priority listing. Power referrers who post regularly will pay for tools that save them time.</div>
+        <div class="tier-price"><span class="tier-amt">₹299+</span><span class="tier-unit">per referrer/mo</span></div>
+      </div>
+      <div class="tier">
+        <div class="tier-label">
+          <div class="tier-phase">Phase 3</div>
+          <div class="tier-name">Marketplace</div>
+        </div>
+        <div class="tier-body">Boosted posts (paid featured placement). Company API integrations — HR teams pay to route all referral posts through RefLink. <strong>B2B revenue at scale.</strong></div>
+        <div class="tier-price"><span class="tier-amt">₹5k+</span><span class="tier-unit">per company/mo</span></div>
+      </div>
+    </div>
+
+    <h3>What we're watching at launch</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Signal</th><th>Green</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Posts created / week</strong></td><td>Referrer growth</td><td>Week-on-week increase</td></tr>
+          <tr><td><strong>Applications / post</strong></td><td>Applicant demand</td><td>&gt;5 in first 48 hrs</td></tr>
+          <tr><td><strong>Shortlist-to-referred rate</strong></td><td>Referrer follow-through</td><td>&gt;50%</td></tr>
+          <tr><td><strong>Return applicants</strong></td><td>Platform stickiness</td><td>&gt;30% apply to 2+ posts</td></tr>
+          <tr><td><strong>Time to status update</strong></td><td>Referrer engagement</td><td>&lt;5 days avg</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack">
+  <div class="container">
+    <div class="eyebrow">06 · Stack</div>
+    <h2 class="section-title">Ship in 3 weeks.<br><em>Scale when ready.</em></h2>
+    <p class="lead">MVP on Bubble.io — chosen for speed, not permanence. Migration path to Next.js + Supabase is documented and ready to execute when traction is confirmed.</p>
+
+    <h3>MVP stack</h3>
+    <div class="stack-row">
+      <div class="stack-pill"><div class="stack-layer">Builder</div><div class="stack-name">Bubble.io</div></div>
+      <div class="stack-pill"><div class="stack-layer">Auth</div><div class="stack-name">LinkedIn OAuth</div></div>
+      <div class="stack-pill"><div class="stack-layer">Email</div><div class="stack-name">SendGrid</div></div>
+      <div class="stack-pill"><div class="stack-layer">Storage</div><div class="stack-name">Bubble S3</div></div>
+      <div class="stack-pill"><div class="stack-layer">Spam</div><div class="stack-name">reCAPTCHA v2</div></div>
+      <div class="stack-pill"><div class="stack-layer">Analytics</div><div class="stack-name">Google Analytics</div></div>
+      <div class="stack-pill"><div class="stack-layer">Domain</div><div class="stack-name">Namecheap · ₹800/yr</div></div>
+      <div class="stack-pill" style="border-color:var(--gold-border);background:var(--gold-bg);"><div class="stack-layer">Total cost</div><div class="stack-name" style="color:var(--gold);">~₹2,500/mo</div></div>
+    </div>
+
+    <h3>Scale path (post-traction)</h3>
+    <div class="stack-row">
+      <div class="stack-pill"><div class="stack-layer">Frontend</div><div class="stack-name">Next.js</div></div>
+      <div class="stack-pill"><div class="stack-layer">Backend + DB</div><div class="stack-name">Supabase</div></div>
+      <div class="stack-pill"><div class="stack-layer">Email</div><div class="stack-name">Resend</div></div>
+      <div class="stack-pill"><div class="stack-layer">Storage</div><div class="stack-name">Cloudflare R2</div></div>
+      <div class="stack-pill"><div class="stack-layer">Deploy</div><div class="stack-name">Vercel</div></div>
+    </div>
+
+    <div class="callout gold">
+      <span class="callout-icon">→</span>
+      <p>The Bubble MVP isn't throwaway work — every workflow maps 1:1 to a Next.js API route. Every data type maps to a Supabase table. We validate behaviour on Bubble, rebuild correctly in code.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section id="risks">
+  <div class="container">
+    <div class="eyebrow">07 · Risks</div>
+    <h2 class="section-title">What could go wrong.<br><em>What we're doing about it.</em></h2>
+    <p class="lead">Every significant failure mode has a concrete mitigation built into the MVP — not a plan for later.</p>
+
+    <div class="risk-list">
+      <div class="risk-item">
+        <div class="risk-l"><div class="risk-lbl r">Risk</div><div class="risk-txt"><strong>Fake posts</strong> — bad actors post non-existent jobs to harvest resumes.</div></div>
+        <div class="risk-r"><div class="risk-lbl g">Mitigation</div><div class="risk-txt">LinkedIn OAuth verification at sign-up. Community flag button on every post. Manual review queue for flagged posts.</div></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-l"><div class="risk-lbl r">Risk</div><div class="risk-txt"><strong>Referrer ghosting</strong> — posts open, applications received, then silence.</div></div>
+        <div class="risk-r"><div class="risk-lbl g">Mitigation</div><div class="risk-txt">Auto email nudge after 5 days with no action. Posts auto-expire after 30 days of inactivity.</div></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-l"><div class="risk-lbl r">Risk</div><div class="risk-txt"><strong>Spam applications</strong> — no-login forms are easy targets for bots and bulk appliers.</div></div>
+        <div class="risk-r"><div class="risk-lbl g">Mitigation</div><div class="risk-txt">reCAPTCHA v2, honeypot field, and duplicate email+post check on every submission.</div></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-l"><div class="risk-lbl r">Risk</div><div class="risk-txt"><strong>Cold start</strong> — platform launches empty, first visitors leave and don't return.</div></div>
+        <div class="risk-r"><div class="risk-lbl g">Mitigation</div><div class="risk-txt">10–15 real seed posts from the founder's network go live before any public promotion. Non-negotiable.</div></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-l"><div class="risk-lbl r">Risk</div><div class="risk-txt"><strong>LinkedIn builds this</strong> — they add a structured referral feature and out-distribute us overnight.</div></div>
+        <div class="risk-r"><div class="risk-lbl g">Mitigation</div><div class="risk-txt">Move fast, build community trust and reputation scores before this is a threat. LinkedIn's incentive is feed engagement — not referral outcomes.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <strong>RefLink</strong> · Investor Brief · May 2026<br>
+  Solo founder · Bootstrapped · MVP not started<br><br>
+  <span style="font-size:12px;">Built with Claude · For the full builder's notebook and 3-week build plan, refer to the companion document.</span>
+</footer>
+
+<script>
+// ── FLOW SWITCHER ──
+function switchFlow(which) {
+  ['ref','app'].forEach(f => {
+    document.getElementById('panel-' + f).classList.toggle('active', f === which);
+    document.getElementById('prog-' + f).style.display = f === which ? 'flex' : 'none';
+    document.querySelectorAll('.flow-tab.' + f).forEach(t => t.classList.toggle('active', f === which));
+  });
+  // Reset all steps in target flow
+  for (let i = 0; i < 5; i++) {
+    const sn = document.getElementById('sn-' + which + '-' + i);
+    const sd = document.getElementById('sd-' + which + '-' + i);
+    if (sn) sn.classList.remove('lit');
+    if (sd) sd.classList.remove('open');
+  }
+  // Light up first step
+  activateStep(which, 0);
+}
+
+function activateStep(flow, idx) {
+  for (let i = 0; i < 5; i++) {
+    const sn = document.getElementById('sn-' + flow + '-' + i);
+    const sd = document.getElementById('sd-' + flow + '-' + i);
+    const pd = document.getElementById('pd-' + flow + '-' + i);
+    if (sn) sn.classList.toggle('lit', i === idx);
+    if (sd) sd.classList.toggle('open', i === idx);
+    if (pd) pd.classList.toggle('lit', i <= idx);
+  }
+}
+
+// ── NAV ACTIVE ON SCROLL ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-40% 0px -50% 0px' });
+sections.forEach(s => obs.observe(s));
+
+// ── MARKET FUNNEL ──
+(function() {
+  const data = [
+    { lbl: 'India tech professionals (LinkedIn active)', num: '~15M', pct: 100, color: '#B5D4F4', textColor: '#042C53' },
+    { lbl: 'Actively job-seeking any given month',       num: '~8M',  pct: 53,  color: '#85B7EB', textColor: '#042C53' },
+    { lbl: 'Seeking referrals specifically',             num: '~2.4M',pct: 30,  color: '#378ADD', textColor: '#fff' },
+    { lbl: 'Reaching out via unstructured DMs/posts',   num: '~1.5M',pct: 19,  color: '#185FA5', textColor: '#fff' },
+    { lbl: 'Captured by any structured tool today',     num: '~0',   pct: 1,   color: '#0C447C', textColor: '#fff' },
+  ];
+  const wrap = document.getElementById('ms-funnel');
+  if (!wrap) return;
+  data.forEach(d => {
+    const row = document.createElement('div');
+    row.className = 'mf-row';
+    row.innerHTML = `
+      <div class="mf-lbl">${d.lbl}</div>
+      <div class="mf-track"><div class="mf-bar" data-pct="${Math.max(d.pct,2)}" style="background:${d.color};color:${d.textColor}">${d.pct > 10 ? d.num : ''}</div></div>
+      <div class="mf-num">${d.pct <= 10 ? d.num : ''}</div>`;
+    wrap.appendChild(row);
+  });
+  setTimeout(() => {
+    wrap.querySelectorAll('.mf-bar').forEach(b => b.style.width = b.dataset.pct + '%');
+  }, 200);
+})();
+
+// Init: open first step of referrer flow
+activateStep('ref', 0);
+</script>
+
+<!-- ══ REVENUE MODEL CSS ══ -->
+<style>
+/* tabs */
+.rm-tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+.rm-tab { padding: 7px 14px; font-size: 12px; font-weight: 500; border: 1px solid var(--rule); border-radius: 20px; cursor: pointer; background: transparent; color: var(--ink3); transition: all .15s; }
+.rm-tab.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.rm-panel { display: none; }
+.rm-panel.active { display: block; }
+
+/* credit packs */
+.cp-list { display: flex; flex-direction: column; gap: 8px; margin: 20px 0; }
+.cp-row { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--r); }
+.cp-row.cp-best { border-color: var(--gold-border); background: var(--gold-bg); }
+.cp-icon { font-size: 18px; color: var(--gold); flex-shrink: 0; }
+.cp-main { flex: 1; }
+.cp-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+.cp-desc { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+.cp-price { text-align: right; }
+.cp-amt { font-family: var(--serif); font-size: 18px; color: var(--ink); display: block; font-weight: 600; }
+.cp-unit { font-size: 11px; color: var(--ink3); }
+
+/* action rows */
+.rm-section-head { font-size: 10px; font-weight: 500; color: var(--ink3); letter-spacing: .09em; text-transform: uppercase; margin: 24px 0 10px; }
+.act-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 4px; }
+.act-row { display: flex; align-items: flex-start; gap: 12px; padding: 11px 14px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--bg2); }
+.act-row.act-free { border-color: var(--teal-border); background: var(--teal-bg); }
+.act-row.act-new { border-color: var(--gold-border); background: var(--gold-bg); }
+.act-body { flex: 1; }
+.act-title { font-size: 13px; font-weight: 500; color: var(--ink); }
+.act-desc { font-size: 12px; color: var(--ink2); margin-top: 2px; line-height: 1.45; }
+.act-cost { flex-shrink: 0; min-width: 76px; text-align: right; }
+.cr-badge { font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 20px; white-space: nowrap; display: inline-block; }
+.cr-free { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal-border); }
+.cr-low  { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal-border); }
+.cr-mid  { background: var(--gold-bg); color: var(--gold); border: 1px solid var(--gold-border); }
+.cr-high { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
+
+/* flow steps */
+.rm-flow { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+.rm-step { display: flex; gap: 12px; padding: 4px 6px; border-radius: 8px; }
+.rm-step-left { display: flex; flex-direction: column; align-items: center; width: 28px; flex-shrink: 0; }
+.rm-step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--bg3); color: var(--ink2); font-size: 12px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--mono); }
+.rm-step-num.ok { background: var(--teal-bg); color: var(--teal); border: 1px solid var(--teal-border); }
+.rm-step-line { width: 1px; flex: 1; min-height: 14px; background: var(--rule); margin: 2px 0; }
+.rm-step-body { flex: 1; padding: 4px 0 18px; font-size: 13px; color: var(--ink2); line-height: 1.55; }
+.rm-step-body strong { color: var(--ink); font-weight: 500; }
+
+/* calc */
+.rm-calc { background: var(--bg3); border-radius: var(--r); padding: 16px; margin: 20px 0; }
+.rm-calc-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 14px; }
+.rm-sl { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.rm-sl label { font-size: 12px; color: var(--ink2); min-width: 200px; }
+.rm-sl input[type=range] { flex: 1; }
+.rm-sl .sv { font-size: 12px; font-weight: 500; color: var(--ink); min-width: 60px; text-align: right; font-family: var(--mono); }
+.rm-res { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+.rm-res-card { background: var(--bg2); border: 1px solid var(--rule); border-radius: var(--r); padding: 10px 14px; }
+.rm-res-label { font-size: 11px; color: var(--ink3); margin-bottom: 4px; }
+.rm-res-val { font-size: 16px; font-weight: 500; color: var(--ink); }
+.rm-res-val.g { color: var(--teal); }
+.rm-res-card.full { grid-column: 1 / -1; }
+
+/* quick ref table */
+.qr-table { width: 100%; border-collapse: collapse; font-size: 13px; border: 1px solid var(--rule); border-radius: var(--r); overflow: hidden; margin: 16px 0; }
+.qr-table th { background: var(--bg3); color: var(--ink3); font-size: 10px; font-weight: 500; letter-spacing: .07em; text-transform: uppercase; padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--rule); }
+.qr-table td { padding: 9px 12px; color: var(--ink2); border-bottom: 1px solid var(--rule); font-size: 12px; }
+.qr-table tr:last-child td { border-bottom: none; }
+.qr-table tr:hover td { background: var(--bg3); }
+.qr-table td strong { color: var(--ink); }
+
+/* insight rows */
+.rm-insight { display: flex; gap: 12px; padding: 12px 14px; border: 1px solid var(--rule); border-radius: var(--r); margin-bottom: 8px; background: var(--bg2); align-items: flex-start; }
+.rm-insight-n { font-family: var(--mono); font-size: 11px; color: var(--gold); font-weight: 500; min-width: 18px; margin-top: 2px; flex-shrink: 0; }
+.rm-insight-t { font-size: 13px; color: var(--ink2); line-height: 1.55; }
+.rm-insight-t strong { color: var(--ink); font-weight: 500; }
+
+.rm-note { font-size: 11px; color: var(--ink3); padding: 9px 13px; background: var(--bg3); border-radius: 6px; margin-top: 14px; line-height: 1.6; }
+
+@media (max-width: 600px) {
+  .rm-res { grid-template-columns: 1fr; }
+  .rm-sl label { min-width: 140px; font-size: 11px; }
+  .rm-tabs { gap: 4px; }
+  .rm-tab { font-size: 11px; padding: 6px 10px; }
+}
+</style>
+
+<!-- REVENUE MODEL -->
+<section id="revenue-model">
+  <div class="container">
+    <div class="eyebrow">08 · Revenue Model</div>
+    <h2 class="section-title">Credit-based.<br><em>Both sides pay.</em></h2>
+    <p class="lead">Users buy credit packs upfront and spend credits on actions. Free signup for everyone — credits unlock power features. Phase 2 adds refunds for successful referrals.</p>
+
+    <div class="rm-tabs">
+      <button class="rm-tab active" onclick="rmShow('packs',this)">Credit packs</button>
+      <button class="rm-tab" onclick="rmShow('applicant',this)">Applicant actions</button>
+      <button class="rm-tab" onclick="rmShow('referrer',this)">Referrer actions</button>
+      <button class="rm-tab" onclick="rmShow('calc',this)">Revenue calculator</button>
+    </div>
+
+    <!-- CREDIT PACKS -->
+    <div class="rm-panel active" id="rmp-packs">
+      <div class="cp-list">
+        <div class="cp-row">
+          <span class="cp-icon">◈</span>
+          <div class="cp-main">
+            <div class="cp-name">Starter — 100 credits</div>
+            <div class="cp-desc">Entry point. Best for applicants testing the platform.</div>
+          </div>
+          <div class="cp-price"><span class="cp-amt">₹999</span><span class="cp-unit">₹9.99 / credit</span></div>
+        </div>
+        <div class="cp-row">
+          <span class="cp-icon">◈</span>
+          <div class="cp-main">
+            <div class="cp-name">Growth — 300 credits</div>
+            <div class="cp-desc">Most popular. Saves 17% vs Starter. Good for active job seekers.</div>
+          </div>
+          <div class="cp-price"><span class="cp-amt">₹2,499</span><span class="cp-unit">₹8.33 / credit</span></div>
+        </div>
+        <div class="cp-row cp-best">
+          <span class="cp-icon" style="color:var(--gold);">◈</span>
+          <div class="cp-main">
+            <div class="cp-name" style="color:var(--gold);">Pro — 600 credits · Best value</div>
+            <div class="cp-desc" style="color:var(--gold);">Saves 33%. For active referrers posting multiple openings per month.</div>
+          </div>
+          <div class="cp-price"><span class="cp-amt" style="color:var(--gold);">₹3,999</span><span class="cp-unit" style="color:var(--gold);">₹6.67 / credit</span></div>
+        </div>
+        <div class="cp-row">
+          <span class="cp-icon">◈</span>
+          <div class="cp-main">
+            <div class="cp-name">Team — 1,500 credits</div>
+            <div class="cp-desc">Built for referrers who post regularly. Best per-credit rate.</div>
+          </div>
+          <div class="cp-price"><span class="cp-amt">₹7,999</span><span class="cp-unit">₹5.33 / credit</span></div>
+        </div>
+      </div>
+      <div class="rm-note">Credits never expire. Non-refundable, non-transferable. Phase 2 will add credit refunds for successful referral outcomes.</div>
+    </div>
+
+    <!-- APPLICANT ACTIONS -->
+    <div class="rm-panel" id="rmp-applicant">
+      <div class="rm-section-head">Always free</div>
+      <div class="act-list">
+        <div class="act-row act-free">
+          <div class="act-body"><div class="act-title">Sign up & create profile</div><div class="act-desc">Full profile, resume upload, LinkedIn link. Free forever.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-free">Free</span></div>
+        </div>
+        <div class="act-row act-free">
+          <div class="act-body"><div class="act-title">First 2 referral applications</div><div class="act-desc">Apply to any 2 open posts — no credits needed. Core onboarding hook.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-free">Free ×2</span></div>
+        </div>
+        <div class="act-row act-free">
+          <div class="act-body"><div class="act-title">Track application status</div><div class="act-desc">View all 5 status states on the tracking page. Free forever.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-free">Free</span></div>
+        </div>
+      </div>
+
+      <div class="rm-section-head">Core paid actions</div>
+      <div class="act-list">
+        <div class="act-row">
+          <div class="act-body"><div class="act-title">Apply for a referral (after free quota)</div><div class="act-desc">10 credits per application. Primary spend driver.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-mid">10 cr</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-body"><div class="act-title">Send a follow-up message</div><div class="act-desc">2 credits. Rate-limited to 1 per application to prevent spam.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-low">2 cr</span></div>
+        </div>
+      </div>
+
+      <div class="rm-section-head">Additional paid features</div>
+      <div class="act-list">
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">See who viewed your application</div><div class="act-desc">Know if the referrer opened your profile. Highest-perceived-value feature — taps into job-search anxiety directly.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-low">5 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Resume match score vs JD</div><div class="act-desc">AI scores your resume against the job description before you apply. Helps self-screen and sharpen the pitch. Phase 2 feature.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-mid">8 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Priority application</div><div class="act-desc">Shown first in referrer's dashboard for 48 hrs after submission.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-mid">15 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Company / role job alert</div><div class="act-desc">Notified when a referral post opens at a specific company or for a specific role. 5 free, then credits.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-low">3 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Verified applicant badge</div><div class="act-desc">LinkedIn + work history verified by RefLink. One-time. Shows on every application permanently.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-high">30 cr</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REFERRER ACTIONS -->
+    <div class="rm-panel" id="rmp-referrer">
+      <div class="rm-section-head">Always free</div>
+      <div class="act-list">
+        <div class="act-row act-free">
+          <div class="act-body"><div class="act-title">Sign up & LinkedIn verification</div><div class="act-desc">Profile, work email verify, trust badge. Free forever.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-free">Free</span></div>
+        </div>
+        <div class="act-row act-free">
+          <div class="act-body"><div class="act-title">First job post</div><div class="act-desc">Create 1 referral post free. Get comfortable before spending credits.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-free">Free ×1</span></div>
+        </div>
+        <div class="act-row act-free">
+          <div class="act-body"><div class="act-title">Basic dashboard — view & update applications</div><div class="act-desc">See applicants, update statuses, trigger auto-emails. Always free.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-free">Free</span></div>
+        </div>
+      </div>
+
+      <div class="rm-section-head">Core paid actions</div>
+      <div class="act-list">
+        <div class="act-row">
+          <div class="act-body"><div class="act-title">Create a new job post (after first free)</div><div class="act-desc">10 credits per post. Includes shareable link, custom fields, application cap.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-mid">10 cr</span></div>
+        </div>
+        <div class="act-row">
+          <div class="act-body"><div class="act-title">AI resume match analytics</div><div class="act-desc">Ranks all applicants by resume-to-JD fit score. Highlights top 3 to refer. Saves hours of manual review.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-mid">10 cr</span></div>
+        </div>
+      </div>
+
+      <div class="rm-section-head">Additional paid features</div>
+      <div class="act-list">
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Boost post — featured placement</div><div class="act-desc">Post pinned to top of discovery feed for 72 hrs. 3× more applicant views. Good for urgent or competitive roles.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-high">25 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Extend post deadline</div><div class="act-desc">Add 14 more days to an expiring post instead of creating a new one.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-low">5 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Advanced applicant filters</div><div class="act-desc">Filter by years of experience, company tier, skill keywords. Unlocks per post.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-low">5 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Anonymous applicant pool preview</div><div class="act-desc">See aggregate stats (experience range, skills, company breakdown) before deciding to post. Gauge supply first.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-low">5 cr</span></div>
+        </div>
+        <div class="act-row act-new">
+          <div class="act-body"><div class="act-title">Public referrer profile page</div><div class="act-desc">Dedicated URL showing referral history and success rate. Builds reputation. One-time unlock.</div></div>
+          <div class="act-cost"><span class="cr-badge cr-high">20 cr</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CALCULATOR -->
+    <div class="rm-panel" id="rmp-calc">
+      <div class="rm-calc">
+        <div class="rm-calc-title">Monthly revenue estimate</div>
+        <div class="rm-sl">
+          <label for="rm-u-app">Active applicants buying credits</label>
+          <input type="range" id="rm-u-app" min="100" max="5000" step="100" value="500" oninput="rmCalc()">
+          <span class="sv" id="rm-v-app">500</span>
+        </div>
+        <div class="rm-sl">
+          <label for="rm-u-ref">Active referrers buying credits</label>
+          <input type="range" id="rm-u-ref" min="50" max="2000" step="50" value="200" oninput="rmCalc()">
+          <span class="sv" id="rm-v-ref">200</span>
+        </div>
+        <div class="rm-sl">
+          <label for="rm-u-appa">Applications per applicant / month</label>
+          <input type="range" id="rm-u-appa" min="1" max="10" step="1" value="4" oninput="rmCalc()">
+          <span class="sv" id="rm-v-appa">4</span>
+        </div>
+        <div class="rm-sl">
+          <label for="rm-u-post">Posts per referrer / month</label>
+          <input type="range" id="rm-u-post" min="1" max="6" step="1" value="2" oninput="rmCalc()">
+          <span class="sv" id="rm-v-post">2</span>
+        </div>
+        <div class="rm-res">
+          <div class="rm-res-card"><div class="rm-res-label">Credits from applicants / month</div><div class="rm-res-val g" id="rm-r-acr">20,000</div></div>
+          <div class="rm-res-card"><div class="rm-res-label">Credits from referrers / month</div><div class="rm-res-val g" id="rm-r-rcr">4,000</div></div>
+          <div class="rm-res-card"><div class="rm-res-label">Monthly revenue (Starter @ ₹9.99/cr)</div><div class="rm-res-val" id="rm-r-rev">₹2.4L</div></div>
+          <div class="rm-res-card"><div class="rm-res-label">Monthly revenue (Pro @ ₹6.67/cr)</div><div class="rm-res-val" id="rm-r-pro">₹1.6L</div></div>
+          <div class="rm-res-card full"><div class="rm-res-label">ARR range (pack mix)</div><div class="rm-res-val g" id="rm-r-arr">₹19.2L – ₹28.8L / year</div></div>
+        </div>
+      </div>
+
+      <div class="rm-section-head">Credit cost quick reference</div>
+      <table class="qr-table">
+        <thead><tr><th>Action</th><th>Who</th><th>Credits</th><th>₹ value (Starter)</th></tr></thead>
+        <tbody>
+          <tr><td>Apply for referral</td><td>Applicant</td><td>10</td><td>₹99.9</td></tr>
+          <tr><td>Follow-up message</td><td>Applicant</td><td>2</td><td>₹20</td></tr>
+          <tr><td>Resume match score</td><td>Applicant</td><td>8</td><td>₹79.9</td></tr>
+          <tr><td>Priority application</td><td>Applicant</td><td>15</td><td>₹149.9</td></tr>
+          <tr><td>View who viewed me</td><td>Applicant</td><td>5</td><td>₹49.9</td></tr>
+          <tr><td>Job alert / company</td><td>Applicant</td><td>3</td><td>₹30</td></tr>
+          <tr><td>Verified badge (one-time)</td><td>Applicant</td><td>30</td><td>₹299.7</td></tr>
+          <tr><td>Create job post</td><td>Referrer</td><td>10</td><td>₹99.9</td></tr>
+          <tr><td>AI resume analytics</td><td>Referrer</td><td>10</td><td>₹99.9</td></tr>
+          <tr><td>Boost post (72 hrs)</td><td>Referrer</td><td>25</td><td>₹249.8</td></tr>
+          <tr><td>Extend post deadline</td><td>Referrer</td><td>5</td><td>₹49.9</td></tr>
+          <tr><td>Advanced filters</td><td>Referrer</td><td>5</td><td>₹49.9</td></tr>
+          <tr><td>Public referrer profile</td><td>Referrer</td><td>20</td><td>₹199.8</td></tr>
+        </tbody>
+      </table>
+      <div class="rm-note">Revenue range depends on pack mix. Real-world mix skews toward Growth/Pro — users who buy more credits spend more per unit. Model is conservative (Starter assumed for low end).</div>
+    </div>
+  </div>
+</section>
+
+<script>
+function rmShow(id, btn) {
+  document.querySelectorAll('.rm-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.rm-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('rmp-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function rmFmt(n) {
+  if (n >= 10000000) return '₹' + (n/10000000).toFixed(2) + ' Cr';
+  if (n >= 100000)   return '₹' + (n/100000).toFixed(1) + 'L';
+  return '₹' + Math.round(n).toLocaleString('en-IN');
+}
+function rmCalc() {
+  const a  = parseInt(document.getElementById('rm-u-app').value);
+  const r  = parseInt(document.getElementById('rm-u-ref').value);
+  const ap = parseInt(document.getElementById('rm-u-appa').value);
+  const pp = parseInt(document.getElementById('rm-u-post').value);
+  document.getElementById('rm-v-app').textContent  = a.toLocaleString('en-IN');
+  document.getElementById('rm-v-ref').textContent  = r.toLocaleString('en-IN');
+  document.getElementById('rm-v-appa').textContent = ap;
+  document.getElementById('rm-v-post').textContent = pp;
+  const aCr = a * ap * 10;
+  const rCr = r * (pp * 10 + 10);
+  const tot = aCr + rCr;
+  const revS = Math.round(tot * 9.99);
+  const revP = Math.round(tot * 6.67);
+  document.getElementById('rm-r-acr').textContent = aCr.toLocaleString('en-IN');
+  document.getElementById('rm-r-rcr').textContent = rCr.toLocaleString('en-IN');
+  document.getElementById('rm-r-rev').textContent = rmFmt(revS);
+  document.getElementById('rm-r-pro').textContent = rmFmt(revP);
+  document.getElementById('rm-r-arr').textContent = rmFmt(revP*12) + ' – ' + rmFmt(revS*12) + ' / year';
+}
+rmCalc();
+</script>
+</body>
+</html>
